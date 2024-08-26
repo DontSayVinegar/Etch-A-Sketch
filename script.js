@@ -2,8 +2,7 @@ const gridContainer = document.querySelector(".gridContainer");
 
 gridContainer.addEventListener("mouseover", (e) => {
     const targetSquare = e.target;
-    targetSquare.style.backgroundColor = "blue";
-    console.log("over");
+    targetSquare.style.backgroundColor = randomColor();
 })
 
 function addDivs(amountPerSide) {
@@ -23,6 +22,14 @@ function addDivs(amountPerSide) {
 
         gridContainer.appendChild(newRow);
     }
+}
+
+function randomColor() {
+    const r = Math.random() * 255;
+    const g = Math.random() * 255;
+    const b = Math.random() * 255;
+
+    return `rgb(${r}, ${g}, ${b})`;
 }
 
 addDivs(prompt("How many squares per side?"));
